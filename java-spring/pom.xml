@@ -7,6 +7,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>java-spring</name>
   <url>http://maven.apache.org</url> 
+  <packaging>jar</packaging>
   <parent>
     <groupId>me.learning-java</groupId>
     <artifactId>java-base</artifactId>
@@ -14,20 +15,25 @@
   </parent>
   
   <dependencies>
-  	 <dependency>
+  	<dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>4.2.6.RELEASE</version>
+      <version>4.0.8.RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-beans</artifactId>
-      <version>4.2.6.RELEASE</version>
+      <version>4.0.8.RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>4.2.6.RELEASE</version>
+      <version>4.0.8.RELEASE</version>
     </dependency>
+    <dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-expression</artifactId>
+	    <version>4.0.8.RELEASE</version>
+	</dependency>
   </dependencies>
 </project>
