@@ -7,7 +7,9 @@
                         http://www.springframework.org/schema/context
                         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 	<!-- 配置各种类型的bean -->
-	<bean id="hello" class="me.learning.springioc.SayApiImpl"></bean>
+	<bean  id="hello" class="me.learning.springioc.SayApiImpl" scope="singleton" >
+		<property name=""></property>
+	</bean>
 
 	
 </beans>
