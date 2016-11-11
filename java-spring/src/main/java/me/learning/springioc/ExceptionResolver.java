@@ -7,4 +7,6 @@ package me.learning.springioc;
  */
 public interface ExceptionResolver {
 	
+	// 异常处理方法
+	public String handleException(String handler,String exceptionType);
 }

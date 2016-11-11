@@ -58,9 +58,21 @@ public class HelloTest {
 	}
 	
 	@Test
+	public void testExceptionResolver(){
+		ApplicationContext ac = new ClassPathXmlApplicationContext("Spring-config.xml");
+		ExceptionResolver resolver = ac.getBean("ExceptionResolver",ExceptionResolver.class);
+		
+		resolver.handleException("1001", "NullPointException");
+		resolver.handleException("login", "MyException");
+		resolver.handleException("1001", "Exception");
+		resolver.handleException("1000", "NullPointException");
+		resolver.handleException("1000", "Exception");
+	}
+	
+	@Test
 	public void  testAop(){
 		ApplicationContext ac = new ClassPathXmlApplicationContext("SpringAop-config.xml");
 		HelloWordService say = ac.getBean("HelloWorldServiceImpl",HelloWordService.class);
-		say.sayHello();
+		say.sayHello("hi");
 	}
 }	

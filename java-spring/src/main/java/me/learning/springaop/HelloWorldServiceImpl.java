@@ -6,8 +6,8 @@ package me.learning.springaop;
  */
 public class HelloWorldServiceImpl implements HelloWordService{
 
-	public void sayHello() {
-		System.out.println("Hello");
+	public void sayHello(String content) {
+		System.out.println(content);
 	}
 
 }
