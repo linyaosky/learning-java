@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+                        http://www.springframework.org/schema/aop
+                        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+    <!-- 启用对AspectJ的支持 -->
+    <aop:aspectj-autoproxy/>
+
+	<!-- 配置目标类（） -->
+	<bean id="HelloWorldServiceImpl" class="me.learning.springaop.HelloWorldServiceImpl"/>
+	
+	<!-- AspectJ方式AOP -->
+	<bean id="aspect" class="me.learning.springaop.AspectServiceAspectJ"/>
+	                        
+	<!-- 配置切面 -->
+	<bean id="HelloWorldAspect" class="me.learning.springaop.HelloWorldAspect"/>
+
+	<!-- Schema方式AOP -->
+	<!-- 
+	<aop:config>
+		<aop:pointcut expression="execution(* me.learning..*.*(..))" id="pointcut"/>
+		<aop:aspect ref="HelloWorldAspect">
+			<aop:before pointcut-ref="pointcut" method="beforeAdvice"/>
+			<aop:after pointcut="execution(* me.learning..*.*(..))" method="afterFinallyAdvice"/>
+		</aop:aspect>
+	</aop:config>
+	 -->
+</beans>

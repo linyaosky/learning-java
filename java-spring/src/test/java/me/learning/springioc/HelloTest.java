@@ -8,10 +8,12 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import me.learning.springaop.HelloWordService;
+
 /**
- * springIoC的学习代码
+ * spring的学习代码
  * 
- * @author linyao
+ * @author Administrator
  *
  */
 public class HelloTest {
@@ -53,5 +55,24 @@ public class HelloTest {
 		ApplicationContext ac = new ClassPathXmlApplicationContext("Spring-config.xml");
 		SayApi say = ac.getBean("hello",SayApi.class);
 		say.sayHello();
+	}
+	
+	@Test
+	public void testExceptionResolver(){
+		ApplicationContext ac = new ClassPathXmlApplicationContext("Spring-config.xml");
+		ExceptionResolver resolver = ac.getBean("ExceptionResolver",ExceptionResolver.class);
+		
+		resolver.handleException("1001", "NullPointException");
+		resolver.handleException("login", "MyException");
+		resolver.handleException("1001", "Exception");
+		resolver.handleException("1000", "NullPointException");
+		resolver.handleException("1000", "Exception");
+	}
+	
+	@Test
+	public void  testAop(){
+		ApplicationContext ac = new ClassPathXmlApplicationContext("SpringAop-config.xml");
+		HelloWordService say = ac.getBean("HelloWorldServiceImpl",HelloWordService.class);
+		say.sayHello("hi");
 	}
 }	

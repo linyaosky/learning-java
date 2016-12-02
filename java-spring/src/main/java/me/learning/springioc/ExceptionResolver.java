@@ -6,5 +6,7 @@ package me.learning.springioc;
  *
  */
 public interface ExceptionResolver {
-	public LearnView handlerException();
+	
+	// 异常处理方法
+	public String handleException(String handler,String exceptionType);
 }

@@ -7,9 +7,22 @@
                         http://www.springframework.org/schema/context
                         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 	<!-- 配置各种类型的bean -->
-	<bean  id="hello" class="me.learning.springioc.SayApiImpl" scope="singleton" >
-		<property name=""></property>
-	</bean>
+	<bean  id="hello" class="me.learning.springioc.SayApiImpl" scope="singleton" />
 
-	
+	<!-- 配置异常解析器 -->
+	<bean id="ExceptionResolver" class="me.learning.springioc.ExceptionResolverImpl">
+		<property name="handlerMappering">
+			<list>
+				<value>1001</value>
+				<value>login</value>
+			</list>
+		</property>
+		<property name="defaultResolver" value="this is defaultResolver"/>
+		<property name="exceptionMap">
+			<map key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="NullPointException" value="handle NullPointException"/>
+				<entry key="MyException" value="handle MyException"/>
+			</map>
+		</property>
+	</bean>
 </beans>
